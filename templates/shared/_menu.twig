@@ -5,17 +5,17 @@
 	<ul>
 		{% if not is_granted('ROLE_ADMIN') %}
 			<li>
-				<a href="#">Gestion de compte</a>
+				<a href="{{path('app_user')}}">Gestion de compte</a>
 			</li>
             <li>
                 <a href="#">Les films favoris</a>
             </li>
 		{% endif %}
 		<li>
-			<a href="/film">Les films</a>
+			<a href="{{path('app_film_index')}}">Les films</a>
 		</li>
 		<li>
-			<a href="/logout">Se déconnecter</a>
+			<a href="{{path('app_logout')}}">Se déconnecter</a>
 		</li>
 	</ul>
 </header>

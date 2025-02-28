@@ -18,7 +18,7 @@ class Film
     private ?int $id = null;
 
     #[ORM\Column(length: 30, nullable: true)]
-    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
+    #[Assert\Length( max:30, maxMessage:"Le texte ne doit pas faire plus de 30 caractères")]
     #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?string $title = null;
     #[ORM\Column(length: 255, nullable: true)]
@@ -28,16 +28,15 @@ class Film
     private ?string $image = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\NotBlank( message:"Veuillez remplir le champs")]
+    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
     #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?\DateTimeInterface $dateSortie = null;
 
     #[ORM\Column(length: 30, nullable: true)]
-    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
+    #[Assert\Length( max:30, maxMessage:"Le texte ne doit pas faire plus de 30 caractères")]
     #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?string $genre = null;
 

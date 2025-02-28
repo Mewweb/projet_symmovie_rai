@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Film index{% endblock %}
+{% block title %}Liste de film{% endblock %}
 
 {% block body %}
-    <h1>Film index</h1>
+    <h1>Liste de film</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Image</th>
                 <th>Description</th>
-                <th>DateSortie</th>
+                <th>Date de sortie</th>
                 <th>Genre</th>
                 <th>actions</th>
             </tr>
@@ -28,8 +28,8 @@
                 <td>{{ film.genre }}</td>
                 {% if is_granted('ROLE_ADMIN') %}
                 <td>
-                    <a href="{{ path('app_film_show', {'id': film.id}) }}">show</a>
-                    <a href="{{ path('app_film_edit', {'id': film.id}) }}">edit</a>
+                    <a href="{{ path('app_film_show', {'id': film.id}) }}">Afficher</a>
+                    <a href="{{ path('app_film_edit', {'id': film.id}) }}">Modifier</a>
                 </td>
                 {% else %}
                     <td>
@@ -39,7 +39,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun film n'a été trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

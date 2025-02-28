@@ -16,17 +16,16 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class UserController extends AbstractController
 {
     #[IsGranted('ROLE_USER')]
-    #[Route('/user/account/{id}', name: 'app_user')]
+    #[Route('/user/account', name: 'app_user')]
     public function index(Request $request, UserInterface $user, EntityManagerInterface $entityManager): Response
     {  
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $entityManager->flush();
-            return $this->redirectToRoute('app_user', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
             'form' => $form
         ]);
     }

@@ -6,6 +6,66 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
         {% endblock %}
+        <style>
+        *{font-family:Arial}
+        ul{
+            display:flex;
+            justify-content:space-around;
+        }
+        body{
+            max-width:1000px;
+            margin:0 auto;
+            padding:2em
+        }
+        ul li{
+            list-style:none
+        }
+            table{
+                width:100%;
+                text-align:center
+            }
+            table td,table th{
+                outline:2px solid black;
+            }
+            a, button{
+                background:black;
+                color:white;
+                padding:.8em 2em;
+                margin:1em 0;
+                cursor:pointer;
+                border:2px solid black;
+                border-radius:5em;
+                text-decoration:none;
+                display:inline-block;
+                transition:.3s all ease;    
+            }
+            button{
+                border-radius:0
+            }
+            form div{
+                display:flex;
+                width:100%;
+                flex-wrap:wrap;
+                justify-content:space-between;
+            }
+            form div div{
+                width:45%;
+            }
+            form input{
+                width:100%;
+                padding:.5em 2em;
+                border-radius:5em;
+                margin:1em 0;
+                border:0
+            }
+            table a, li a{
+                padding:.4em 2em
+            }
+            a:hover, button:hover{
+                background:transparent;
+                color:black;
+            }
+        </style>
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
