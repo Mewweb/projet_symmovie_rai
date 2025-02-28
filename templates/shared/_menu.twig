@@ -1,0 +1,21 @@
+<header>
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+		<p>Bonjour {{app.user.Lastname}}  {{app.user.Firstname}}</p>
+	{% endif %}
+	<ul>
+		{% if not is_granted('ROLE_ADMIN') %}
+			<li>
+				<a href="#">Gestion de compte</a>
+			</li>
+            <li>
+                <a href="#">Les films favoris</a>
+            </li>
+		{% endif %}
+		<li>
+			<a href="/film">Les films</a>
+		</li>
+		<li>
+			<a href="/logout">Se déconnecter</a>
+		</li>
+	</ul>
+</header>

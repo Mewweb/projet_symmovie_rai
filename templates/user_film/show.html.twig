@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserFilm{% endblock %}
+
+{% block body %}
+    <h1>UserFilm</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_film.id }}</td>
+            </tr>
+            <tr>
+                <th>DateAjout</th>
+                <td>{{ user_film.dateAjout ? user_film.dateAjout|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_film_index') }}">back to list</a>
+
+    <a href="{{ path('app_user_film_edit', {'id': user_film.id}) }}">edit</a>
+
+    {{ include('user_film/_delete_form.html.twig') }}
+{% endblock %}

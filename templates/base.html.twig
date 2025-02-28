@@ -12,6 +12,9 @@
         {% endblock %}
     </head>
     <body>
+    		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			{% include "shared/_menu.twig" %}
+		{% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>

@@ -43,7 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, UserFilm>
      */
-    #[ORM\OneToMany(targetEntity: UserFilm::class, mappedBy: 'abonne')]
+    #[ORM\OneToMany(targetEntity: UserFilm::class, mappedBy: 'abonne', cascade: ['persist'])]
     private Collection $userFilm;
 
     public function __construct()

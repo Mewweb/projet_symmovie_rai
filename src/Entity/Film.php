@@ -6,6 +6,7 @@ use App\Repository\FilmRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FilmRepository::class)]
@@ -17,18 +18,27 @@ class Film
     private ?int $id = null;
 
     #[ORM\Column(length: 30, nullable: true)]
+    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
+    #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?string $title = null;
-
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
+    #[Assert\NotBlank( message:"Veuillez remplir le champs")]
+
     private ?string $image = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
+    #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?\DateTimeInterface $dateSortie = null;
 
     #[ORM\Column(length: 30, nullable: true)]
+    #[Assert\Length( max:255, maxMessage:"Le texte ne doit pas faire plus de 255 caractères")]
+    #[Assert\NotBlank( message:"Veuillez remplir le champs")]
     private ?string $genre = null;
 
     /**
